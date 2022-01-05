@@ -2,11 +2,11 @@ describe('SWAG Labs', () => {
   beforeEach(() => cy.visit('/'))
 
   it('logs in with standard user', () => {
-    cy.get('[data-test="username"]')
+    cy.dataTest('username')
       .type(Cypress.env('user'))
-    cy.get('[data-test="password"]')
+    cy.dataTest('password')
       .type(Cypress.env('password'), { log: false })
-    cy.get('[data-test="login-button"]')
+    cy.dataTest('login-button')
       .click()
 
     cy.url()
