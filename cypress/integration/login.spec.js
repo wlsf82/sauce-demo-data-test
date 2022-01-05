@@ -30,10 +30,7 @@ describe('SWAG Labs', () => {
 
     cy.logout()
 
-    cy.url()
-      .should('be.equal', `${Cypress.config('baseUrl')}/`)
-    cy.dataTest('login-button')
-      .should('be.visible')
+    cy.validateUserLoggedOut()
   })
 })
 
@@ -55,4 +52,11 @@ Cypress.Commands.add('logout', () => {
     .click()
   cy.contains('a', 'Logout')
     .click()
+})
+
+Cypress.Commands.add('validateUserLoggedOut', () => {
+  cy.url()
+    .should('be.equal', `${Cypress.config('baseUrl')}/`)
+  cy.dataTest('login-button')
+    .should('be.visible')
 })
