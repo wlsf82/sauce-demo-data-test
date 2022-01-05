@@ -32,6 +32,13 @@ describe('SWAG Labs', () => {
 
     cy.validateUserLoggedOut()
   })
+
+  it('logs out via clearing the cookies', () => {
+    cy.login()
+    cy.clearCookies()
+    cy.reload()
+    cy.checkErrorMsg("You can only access '/inventory.html' when you are logged in.")
+  })
 })
 
 Cypress.Commands.add('validateSucessfullLogin', () => {
