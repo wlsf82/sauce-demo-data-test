@@ -24,6 +24,20 @@ describe('SWAG Labs', () => {
 
     cy.checkErrorMsg('Username and password do not match')
   })
+
+  it('logs out', () => {
+    cy.login()
+
+    cy.get('#react-burger-menu-btn')
+      .click()
+    cy.contains('a', 'Logout')
+      .click()
+
+    cy.url()
+      .should('be.equal', `${Cypress.config('baseUrl')}/`)
+    cy.dataTest('login-button')
+      .should('be.visible')
+  })
 })
 
 Cypress.Commands.add('validateSucessfullLogin', () => {
