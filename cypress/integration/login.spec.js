@@ -1,4 +1,4 @@
-describe('SWAG Labs', () => {
+describe('SWAG Labs - Login scenarios', () => {
   beforeEach(() => cy.visit('/'))
 
   it('logs in with standard user', () => {
@@ -24,46 +24,11 @@ describe('SWAG Labs', () => {
 
     cy.checkErrorMsg('Username and password do not match')
   })
-
-  it('logs out', () => {
-    cy.login()
-
-    cy.logout()
-
-    cy.validateUserLoggedOut()
-  })
-
-  it('logs out via clearing the cookies', () => {
-    cy.login()
-    cy.clearCookies()
-    cy.reload()
-    cy.checkErrorMsg("You can only access '/inventory.html' when you are logged in.")
-  })
 })
 
 Cypress.Commands.add('validateSucessfullLogin', () => {
   cy.url()
     .should('be.equal', `${Cypress.config('baseUrl')}/inventory.html`)
   cy.contains('.title', 'Products')
-    .should('be.visible')
-})
-
-Cypress.Commands.add('checkErrorMsg', msg => {
-  cy.dataTest('error')
-    .should('be.visible')
-    .and('contain', msg)
-})
-
-Cypress.Commands.add('logout', () => {
-  cy.get('#react-burger-menu-btn')
-    .click()
-  cy.contains('a', 'Logout')
-    .click()
-})
-
-Cypress.Commands.add('validateUserLoggedOut', () => {
-  cy.url()
-    .should('be.equal', `${Cypress.config('baseUrl')}/`)
-  cy.dataTest('login-button')
     .should('be.visible')
 })

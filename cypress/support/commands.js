@@ -13,3 +13,9 @@ Cypress.Commands.add('login', (
   cy.dataTest('login-button')
     .click()
 })
+
+Cypress.Commands.add('checkErrorMsg', msg => {
+  cy.dataTest('error')
+    .should('be.visible')
+    .and('contain', msg)
+})
