@@ -28,10 +28,7 @@ describe('SWAG Labs', () => {
   it('logs out', () => {
     cy.login()
 
-    cy.get('#react-burger-menu-btn')
-      .click()
-    cy.contains('a', 'Logout')
-      .click()
+    cy.logout()
 
     cy.url()
       .should('be.equal', `${Cypress.config('baseUrl')}/`)
@@ -51,4 +48,11 @@ Cypress.Commands.add('checkErrorMsg', msg => {
   cy.dataTest('error')
     .should('be.visible')
     .and('contain', msg)
+})
+
+Cypress.Commands.add('logout', () => {
+  cy.get('#react-burger-menu-btn')
+    .click()
+  cy.contains('a', 'Logout')
+    .click()
 })
