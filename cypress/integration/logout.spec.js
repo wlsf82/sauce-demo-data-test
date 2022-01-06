@@ -1,14 +1,12 @@
 describe('SWAG Labs - Logout scenarios', () => {
-  beforeEach(() => cy.visit('/'))
+  beforeEach(() => cy.programmaticLogin())
 
   it('logs out', () => {
-    cy.login()
     cy.logout()
     cy.validateUserLoggedOut()
   })
 
   it('logs out via clearing the cookies', () => {
-    cy.login()
     cy.clearCookies()
     cy.reload()
     cy.checkErrorMsg("You can only access '/inventory.html' when you are logged in.")

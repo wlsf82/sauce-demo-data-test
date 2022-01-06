@@ -19,3 +19,8 @@ Cypress.Commands.add('checkErrorMsg', msg => {
     .should('be.visible')
     .and('contain', msg)
 })
+
+Cypress.Commands.add('programmaticLogin', () => {
+  cy.setCookie('session-username', Cypress.env('user'))
+  cy.visit('/inventory.html', { failOnStatusCode: false })
+})
