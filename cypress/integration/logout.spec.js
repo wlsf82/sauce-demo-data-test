@@ -1,7 +1,7 @@
 describe('SWAG Labs - Logout scenarios', () => {
   beforeEach(() => cy.programmaticLogin())
 
-  it('logs out', () => {
+  it('logs out via GUI', () => {
     cy.logout()
     cy.validateUserLoggedOut()
   })
