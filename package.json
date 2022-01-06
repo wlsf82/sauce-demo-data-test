@@ -1,12 +1,18 @@
 {
   "name": "sauce-demo-data-test",
   "version": "1.0.0",
-  "description": "TBD.",
+  "description": "Sample project to demonstrate how to evolve a test architecture on-demand.",
   "scripts": {
     "cy:open": "cypress open",
     "test": "cypress run"
   },
-  "keywords": [],
+  "keywords": [
+    "Cypres.io",
+    "Talking About Testing",
+    "cy.hands0n()",
+    "cy.ambassador()",
+    "Modern Web Testing"
+  ],
   "author": "Walmyr Filho <wlsf82@gmail.com> (https://walmyr.dev)",
   "license": "MIT",
   "devDependencies": {
