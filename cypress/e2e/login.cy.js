@@ -8,19 +8,19 @@ describe('SWAG Labs - Login scenarios', () => {
   })
 
   it('error on locked user', () => {
-    cy.login('locked_out_user', Cypress.env('password'))
+    cy.login('locked_out_user', Cypress.env('PASSWORD'))
 
     cy.checkErrorMsg('Sorry, this user has been locked out.')
   })
 
   it('logs in with performance glitch user', () => {
-    cy.login('performance_glitch_user', Cypress.env('password'))
+    cy.login('performance_glitch_user', Cypress.env('PASSWORD'))
 
     cy.validateSucessfullLogin()
   })
 
   it('error on invalid password', () => {
-    cy.login(Cypress.env('user'), 'invalid')
+    cy.login(Cypress.env('USER'), 'invalid')
 
     cy.checkErrorMsg('Username and password do not match')
   })

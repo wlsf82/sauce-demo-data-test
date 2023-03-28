@@ -3,8 +3,8 @@ Cypress.Commands.add('dataTest', value => {
 })
 
 Cypress.Commands.add('login', (
-  user = Cypress.env('user'),
-  password = Cypress.env('password')
+  user = Cypress.env('USER'),
+  password = Cypress.env('PASSWORD')
 ) => {
   cy.dataTest('username')
     .type(user)
@@ -21,6 +21,6 @@ Cypress.Commands.add('checkErrorMsg', msg => {
 })
 
 Cypress.Commands.add('programmaticLogin', () => {
-  cy.setCookie('session-username', Cypress.env('user'))
+  cy.setCookie('session-username', Cypress.env('USER'))
   cy.visit('/inventory.html', { failOnStatusCode: false })
 })
