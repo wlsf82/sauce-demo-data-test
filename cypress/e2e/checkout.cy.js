@@ -5,7 +5,7 @@ describe('SWAG Labs - Checkout scenarios', () => {
     cy.checkout()
     cy.contains('Checkout: Complete!')
       .should('be.visible')
-    cy.contains('THANK YOU FOR YOUR ORDER')
+    cy.contains('Thank you for your order!')
       .should('be.visible')
   })
 })
