@@ -6,7 +6,7 @@ Sample project to demonstrate how to evolve a test architecture on-demand.
 
 It is required to have Node.js and npm installed to run this project.
 
-> I used versions `v14.17.3` and `6.14.13` of Node.js and npm, respectively. I suggest you use the same or later versions.
+> I used versions `v18.13.0` and `8.19.3` of Node.js and npm, respectively. I suggest you use the same or later versions.
 
 ## Installation
 
